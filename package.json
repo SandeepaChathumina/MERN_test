@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/SandeepaChathumina/MERN_test#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10"
