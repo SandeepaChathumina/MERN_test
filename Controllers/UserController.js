@@ -94,8 +94,32 @@ const updateUser = async (req, res, next) => {
     return res.status(200).json({ users });
 }
 
+
+
+//delete by id
+const deleteUser = async (req, res, next) => {
+    const id = req.params.id;
+
+    let user;
+
+    try {
+        user = await User.findByIdAndDelete(id);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+    //not insert users
+    if (!user) {
+        return res.status(404).send({ message: "Unable to delete user" });
+    }
+
+    return res.status(200).json({ message: "User deleted successfully" });
+};
+
+
 exports.getAllUsers = getAllUsers;
 exports.addUsers = addUsers;
 exports.getById = getById;
 exports.updateUser = updateUser;
-
+exports.deleteUser = deleteUser;
