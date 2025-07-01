@@ -45,6 +45,57 @@ const addUsers = async (req, res, next) => {
     return res.status(200).json({ users });
 };
 
+
+
+//get by id
+
+const getById = async (req, res, next) => {
+    const id = req.params.id;
+
+    let user;
+
+    try{
+        user = await User.findById(id);
+    }
+
+    catch (error) {
+        console.log(error);
+    }
+
+    //not insert users
+    if (!user) {
+        return res.status(404).send({ message: "Unable to insert user" });
+    }
+
+    return res.status(200).json({ user });
+
+}
+
+
+//update by id
+const updateUser = async (req, res, next) => {
+    const id = req.params.id;
+    const { name, age, gmail, address } = req.body;
+
+    let users;
+
+    try {
+        users = await User.findByIdAndUpdate(id, { name, age, gmail, address });
+        users = await users.save();
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+    //not insert users
+    if (!users) {
+        return res.status(404).send({ message: "Unable to update user" });
+    }
+    return res.status(200).json({ users });
+}
+
 exports.getAllUsers = getAllUsers;
 exports.addUsers = addUsers;
+exports.getById = getById;
+exports.updateUser = updateUser;
 
