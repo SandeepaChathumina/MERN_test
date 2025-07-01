@@ -8,7 +8,7 @@ import AddUser from './Components/AddUser/AddUser';
 function App() {
   return (
     <div>
-      <Home />
+    
       <React.Fragment>
         <Routes>
           <Route path="/" element={<Home />} />
