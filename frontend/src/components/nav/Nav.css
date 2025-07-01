@@ -1,0 +1,37 @@
+/* Nav.css */
+
+.home-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333; /* Dark background */
+  display: flex; /* Horizontal layout */
+}
+
+.home-li {
+  float: left;
+}
+
+.home-a {
+  display: block;
+  color: white; /* White text */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.home-a h1 {
+  margin: 0;
+  font-size: 1.2rem; /* Smaller heading size */
+  font-weight: normal; /* Less bold */
+}
+
+.home-a:hover {
+  background-color: #111; /* Darker on hover */
+}
+
+.active {
+  background-color: #04AA6D; /* Highlight current page */
+}

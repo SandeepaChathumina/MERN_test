@@ -1,8 +1,7 @@
-import './App.css';
-import Home from './Components/Home/Home';
 import React from 'react';
 import {Route, Routes} from 'react-router';
-import Nav from './Components/Nav/Nav';
+import './App.css';
+import Home from './Components/Home/Home';
 import Users from './Components/UserDetails/Users';
 import AddUser from './Components/AddUser/AddUser';
 
