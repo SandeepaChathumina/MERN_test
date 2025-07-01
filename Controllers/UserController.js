@@ -24,13 +24,13 @@ const getAllUsers = async (req, res) => {
 
 //data insert part
 
-const addUsers = async (req, res) => {
+const addUsers = async (req, res, next) => {
     const { name, age, gmail, address } = req.body;
 
     //create a new user
     let users;
     try{
-        users = new user({name, age, gmail, address});
+        users = new User({name, age, gmail, address});
         await users.save();
 
     } catch (error) {
@@ -43,7 +43,7 @@ const addUsers = async (req, res) => {
     }
 
     return res.status(200).json({ users });
-}
+};
 
 exports.getAllUsers = getAllUsers;
 exports.addUsers = addUsers;
