@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const router = require('./Routes/UserRoute'); // Assuming you have a UserRoute file
 
 const app = express();
 
 // Middleware
-app.use("/", (req, res, next) => {
-    res.send("It is working");
-});
+app.use(express.json()); // To parse JSON bodies
+app.use("/users",router);
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://sandy:Ehqk1YWBdWBGDKmf@cluster0.bctfbpk.mongodb.net/")
