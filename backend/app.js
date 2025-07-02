@@ -1,9 +1,10 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const router = require('./Routes/UserRoute'); // Assuming you have a UserRoute file
+//pass-Ehqk1YWBdWBGDKmf
+const express = require("express");
+const mongoose = require("mongoose");
+const router = require("./Routes/UserRoute"); // Assuming you have a UserRoute file
 
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 
 // Middleware
 app.use(express.json()); // To parse JSON bodies
@@ -28,4 +29,3 @@ mongoose.connect("mongodb+srv://sandy:Ehqk1YWBdWBGDKmf@cluster0.bctfbpk.mongodb.
 
 
 
-//Ehqk1YWBdWBGDKmf
