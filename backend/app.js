@@ -1,31 +1,31 @@
-//pass-Ehqk1YWBdWBGDKmf
+// server.js
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("./Routes/UserRoute"); // Assuming you have a UserRoute file
+const cors = require("cors");
+const userRoutes = require("./Routes/UserRoute"); // Adjust this path if needed
 
 const app = express();
-const cors = require("cors");
 
 // Middleware
-app.use(express.json()); // To parse JSON bodies
-app.use(cors()); // Enable CORS for all routes
-app.use("/users",router);
+app.use(express.json()); // Parse JSON bodies
+app.use(cors());         // Enable CORS
 
-// Connect to MongoDB
-mongoose.connect("mongodb+srv://sandy:Ehqk1YWBdWBGDKmf@cluster0.bctfbpk.mongodb.net/")
-    .then(() => {
-        console.log("Connected to MongoDB");
+// Routes
+app.use("/users", userRoutes);
 
-        // Start the server only after successful connection
-        app.listen(5000, () => {
-            console.log("Server started on port 5000");
-        });
-    })
-    .catch((err) => {
-        console.error("MongoDB connection error:", err);
-    });
+// MongoDB connection
+const MONGODB_URI = "mongodb+srv://sandy:Ehqk1YWBdWBGDKmf@cluster0.bctfbpk.mongodb.net/myDatabaseName?retryWrites=true&w=majority";
 
-    
-
-
-
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log("✅ Connected to MongoDB");
+  app.listen(5000, () => {
+    console.log("🚀 Server started on http://localhost:5000");
+  });
+})
+.catch((err) => {
+  console.error("❌ MongoDB connection error:", err.message);
+});
